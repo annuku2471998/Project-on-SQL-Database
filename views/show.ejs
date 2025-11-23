@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show all candidates on this page/site.</title>
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+<body>
+    <h1 style="text-align: center; color: chocolate;">List of all users:-</h1>
+    <% if (success && success.length > 0) { %>
+        <div id="messageBox" class="box">
+            <strong><%= success %></strong>
+        </div>
+    <% } %>
+    <table>
+        <tr>
+              <th>user ID</th>
+              <th>User Name</th>
+              <th>Email ID</th>
+        </tr>
+    <% for(let user of users ) { %>
+      <tr>
+           <td> <%= user.id %> </td>
+           <td> <%= user.username %> </td>
+           <td> <%= user.email %> </td>
+           <td> <%= user.password %> </td>
+           <td>
+            <form method="get" action="/users/<%= user.id %>/eddit">
+                <button style="color: blue;">eddit</button>
+            </form>
+           </td>
+           <td>
+            <form method="post" action="/users/<%= user.id %>?_method=DELETE">
+                <button style="color: red;">Delete</button>
+            </form>
+           </td>
+      </tr>
+   
+
+    <% } %>
+    </table>
+ <script src="/script.js"></script>   
+</body>
+</html>

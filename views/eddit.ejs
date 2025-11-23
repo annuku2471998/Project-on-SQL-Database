@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eddited Form</title>
+</head>
+<body>
+    <h1 style="text-align: center; text-decoration: overline; margin-top: 100px; color: aquamarine;">user Id: <%= user.id %> -</h1>
+    <form method="post" action="/users/<%= user.id %>?_method=PATCH" style="text-align: center;" >
+        <level for="username" style="font-size: 1.4rem; font-weight: 600;">UserName:-</level>
+        <input type="text" name="username" value="<%= user.username %>" style="font-size: 1.2rem;">
+        <br><br>
+        <level for="username" style="font-size: 1.4rem; font-weight: 600;">Password:-</level>&nbsp;&nbsp;
+        <input type="password" placeholder="type your password" name="password" style="font-size: 1.2rem;">
+        <br><br><br><br>
+        <button type="submit" style="font-size: 1.6rem; box-shadow: 1px 2px 1px 2px; font-weight: 600; border-radius: 10px;">submit</button>
+
+    </form>
+
+      <% if (error && error.length > 0) { %>
+        <div id="messageBox" class="box" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; margin-bottom: 20px;">
+            <strong><%= error %></strong>
+        </div>
+    <% } %>
+    <script src="/script.js"></script>
+</body>
+</html>
